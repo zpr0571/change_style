@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>input验证</title>
+	<style>
+		body {
+			padding: 50px;
+			margin: 0;
+		}
+		input {
+			margin: 50px 12px 0 0;
+			width: 160px;
+			height: 25px;
+		}
+		span {
+			font-weight: 700;
+		}
+	</style>
+</head>
+<body>
+	<span>请按照提示输入信息</span>
+	<input type="text" onfocus="prowing()" onblur= "key()" id="txt">
+	<span id="span"></span>
+
+<script>
+	document.write(isNaN(123));
+	var span = document.getElementById("span");
+
+	function prowing () {
+		span.innerHTML = "请您输入4—8位数字";
+	}
+	function key () {
+
+		var txt = document.getElementById("txt");
+		var val = txt.value;
+		var str = val.length;
+		if (isNaN(val)==true) {
+			span.innerHTML = "请您输入数字";
+		}else if(str<4 || str>8) {
+			span.innerHTML = "数字必须是4-8位";
+		}else {
+			span.innerHTML = "OK!";
+		}
+	}
+</script>
+
+
+
+
+
+
+
+</body>
+</html>

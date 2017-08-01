@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>改变诗词样式</title>
+
+	<style>
+		body,select,input,p {
+			padding: 0;
+			margin: 0;
+
+			
+		}
+		body {
+			background: #ccc;
+
+		}
+		.console {
+			margin: 20px auto;
+			margin-top: 80px; 
+			width: 900px;
+			height: 50px;
+			line-height: 50px;
+			font-weight: 700;
+			text-align: center;
+		}
+		.console span {
+			font-size: 20px;
+			margin-right: 5px;
+
+		}
+		select,input {
+			width: 60px;
+			height: 25px;
+			margin-right: 20px;
+			background: #ccc;
+			cursor: pointer;
+		}
+		.content {
+			width: 900px;
+			height: 680px;
+			margin: 0 auto;
+			background: pink;
+			color: #EEE;
+			font-size: 20px;
+			text-align: center;
+			padding-top: 50px;
+			line-height: 30px;
+		}
+		.content span {
+			display: block;
+			text-align: right;
+			margin-right: 20px;
+		}
+	</style>
+</head>
+<body>
+	<div class="console">
+		<span>字体样式</span>	
+		<select class="font_style" id="font_style" onchange="change_style()">
+			<option>正常</option>
+			<option>加粗</option>
+			<option>倾斜</option>
+			
+		</select>
+		<span>字体大小</span>
+		<select class="font_size" id="font_size" onchange="change_size()">
+			<option>22px</option>
+			<option>24px</option>
+			<option>26px</option>
+		</select>
+		<span>字体颜色</span>
+		<input type="color" id="color" onchange="change_color()">
+		<span>背景颜色</span>
+		<input type="color" id="color_bg" onchange="change_color_bg()">
+		<span>行高</span>
+		<input type="number" value= "30" min="30" max="40" id="number" onchange="change_num()">
+	</div>
+
+	<div class="content" id="change_con">
+	<h2>关雎</h2>
+		<p>
+		【作者】《诗经》 【朝代】先秦 译文对照<br>
+			关关雎鸠， 在河之洲。<br>
+			窈窕淑女， 君子好逑。<br>
+			参差荇菜， 左右流之。<br>
+			窈窕淑女， 寤寐求之。<br>
+			求之不得， 寤寐思服。<br>
+			悠哉悠哉， 辗转反侧。<br>
+			参差荇菜， 左右采之。<br>
+			窈窕淑女， 琴瑟友之。<br>
+			参差荇菜， 左右芼之。<br>
+			窈窕淑女， 钟鼓乐之。
+			<br><br><br>		
+		</p>	
+			<span>2017-7-6</span>
+	</div>
+	
+	<script>
+	
+	var change_con = document.getElementById("change_con");
+	// console.log(font_style.value);
+	
+	function change_style () {
+		var font_style = document.getElementById("font_style");
+		var val = font_style.value;
+		if(val == "加粗") {
+			change_con.style.fontWeight = "700";
+		}else if (val == "倾斜"){
+			change_con.style.fontStyle = "italic";
+		}else {
+			change_con.style.fontStyle = "normal";
+		}
+
+	}
+	function change_size () {
+
+		var font_size = document.getElementById("font_size");
+		var val = font_size.value;
+		console.log(val);		
+		change_con.style.fontSize = val;
+		
+	}
+	function change_color() {
+		var color = document.getElementById("color");
+		var val = color.value;
+		change_con.style.color = val;
+
+	}
+	function change_color_bg () {
+		var color_bg = document.getElementById("color_bg");
+		var val = color_bg.value;
+		change_con.style.background = val;
+	}
+	function change_num () {
+		var number = document.getElementById("number");
+		var val = number.value;
+		// console.log(val);
+		change_con.style.lineHeight = val + "px";
+	}
+
+
+
+
+
+
+
+	</script>
+</body>
+</html>
